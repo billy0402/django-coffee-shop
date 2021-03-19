@@ -18,7 +18,12 @@
                 {% for coffee in coffees %}
                     <tr>
                         <td>{{ coffee.id }}</td>
-                        <td>{{ coffee.name }}</td>
+                        {# 原本是 <td>{{ coffee.name }}</td> #}
+                        <td>
+                            <a href="{% url 'coffees:show' coffee.id %}">
+                                {{ coffee.name }}
+                            </a>
+                        </td>
                         <td>{{ coffee.get_roast_display }}</td>
                         <td>{{ coffee.discount }}</td>
                     </tr>

@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+    <h2>#{{ coffee.id }} {{ coffee.name }}</h2>
+    <hr>
+    <p>名稱: {{ coffee.name }}</p>
+    <p>重量: {{ coffee.weight }}</p>
+    <p>味道: {{ coffee.taste }}</p>
+    <p>描述: {{ coffee.description }}</p>
+    <p>烘培程度: {{ coffee.get_roast_display }}</p>
+    <p>價格: {{ coffee.price }}</p>
+    <p>優惠價格: {{ coffee.discount }}</p>
+    <p>產地: {{ coffee.origin_place }}</p>
+    <p>主要處理法: {{ coffee.main_processing }}</p>
+    <p>磨豆方式: {{ coffee.grindings.all | join:', ' }}</p>
+
+    <a href="{% url 'coffees:index' %}" class="btn btn-primary"><< 返回</a>
+{% endblock %}
