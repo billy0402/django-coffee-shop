@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h2>咖啡列表</h2>
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>名稱</th>
+                    <th>烘培程度</th>
+                    <th>優惠價格</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for coffee in coffees %}
+                    <tr>
+                        <td>{{ coffee.id }}</td>
+                        <td>{{ coffee.name }}</td>
+                        <td>{{ coffee.get_roast_display }}</td>
+                        <td>{{ coffee.discount }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td class="text-center" colspan="4">沒有咖啡～</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
