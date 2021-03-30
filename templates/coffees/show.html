@@ -1,6 +1,10 @@
 {% extends 'layout.html' %}
 
 {% block main %}
+    <a href="{% url 'coffees:delete' coffee.id %}"
+       class="btn btn-danger float-right">
+        刪除
+    </a>
     <a href="{% url 'coffees:edit' coffee.id %}"
        class="btn btn-info float-right mr-2">
         編輯

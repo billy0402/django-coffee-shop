@@ -12,4 +12,6 @@ urlpatterns = [
     path('add/', views.add, name='add'),
     # ex: /coffees/1/edit/
     path('<int:pk>/edit/', views.edit, name='edit'),
+    # ex: /coffees/1/delete/
+    path('<int:pk>/delete/', views.delete, name='delete'),
 ]
