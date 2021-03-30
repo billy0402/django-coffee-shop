@@ -10,4 +10,6 @@ urlpatterns = [
     path('<int:pk>/', views.show, name='show'),
     # ex: /coffees/add/
     path('add/', views.add, name='add'),
+    # ex: /coffees/1/edit/
+    path('<int:pk>/edit/', views.edit, name='edit'),
 ]

@@ -1,6 +1,11 @@
 {% extends 'layout.html' %}
 
 {% block main %}
+    <a href="{% url 'coffees:edit' coffee.id %}"
+       class="btn btn-info float-right mr-2">
+        編輯
+    </a>
+
     <h2>#{{ coffee.id }} {{ coffee.name }}</h2>
     <hr>
     <p>名稱: {{ coffee.name }}</p>
