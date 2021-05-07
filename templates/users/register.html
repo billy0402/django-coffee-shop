@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+            <h2>註冊</h2>
+            <hr>
+            {% include 'share/_form.html' %}
+            <a href="{% url 'login' %}">已經有帳號了嗎？</a>
+        </div>
+    </div>
+{% endblock %}

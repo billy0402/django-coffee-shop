@@ -1,0 +1,8 @@
+會收到這封信是因為你通過以下網址 {{ site_name }} 要求重設你的帳戶密碼。
+
+請透過下方連結進行重設:
+{{ protocol }}://{{ domain }}{% url 'password_set' uidb64=uid token=token %}
+
+順便提醒一下，這是你的用戶名 {{ user.get_username }}
+
+感謝您使用本網站！
