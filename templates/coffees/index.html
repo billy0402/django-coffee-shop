@@ -3,10 +3,12 @@
 {% block main %}
     <div class="row">
         <div class="col">
-            <a href="{% url 'coffees:add' %}"
-               class="btn btn-outline-info float-right">
-                新增咖啡
-            </a>
+            {% if perms.books.add_book %}
+                <a href="{% url 'coffees:add' %}"
+                   class="btn btn-outline-info float-right">
+                    新增咖啡
+                </a>
+            {% endif %}
             <h2>咖啡列表</h2>
             <hr>
             <table class="table table-striped">
