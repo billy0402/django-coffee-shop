@@ -3,7 +3,7 @@
 {% block main %}
     <div class="row">
         <div class="col">
-            {% if perms.books.add_book %}
+            {% if perms.coffees.add_coffee %}
                 <a href="{% url 'coffees:add' %}"
                    class="btn btn-outline-info float-right">
                     新增咖啡
@@ -17,7 +17,7 @@
                     <th>#</th>
                     <th>名稱</th>
                     <th>烘培程度</th>
-                    <th>優惠價格</th>
+                    <th>價格</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,7 @@
                             </a>
                         </td>
                         <td>{{ coffee.get_roast_display }}</td>
-                        <td>{{ coffee.discount }}</td>
+                        <td>{{ coffee.price }}</td>
                     </tr>
                 {% empty %}
                     <tr>
