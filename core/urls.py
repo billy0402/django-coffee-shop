@@ -22,6 +22,7 @@ from django.contrib.auth.views import (
 )
 from django.shortcuts import redirect
 from django.urls import path, include, reverse_lazy
+from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework.routers import DefaultRouter
 
 from api import views as api_views
@@ -69,6 +70,7 @@ urlpatterns = [
     ),
 
     path('coffees/', include('coffees.urls')),
+    path('api/auth/', obtain_auth_token, name='api_auth'),
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]

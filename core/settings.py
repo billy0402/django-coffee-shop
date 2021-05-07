@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
     'bootstrap4',
 
     'coffees.apps.CoffeesConfig',
@@ -153,3 +154,12 @@ with open(BASE_DIR / 'core/email.txt', 'r') as file:
 EMAIL_HOST_USER = email_account.strip()
 
 EMAIL_HOST_PASSWORD = email_password.strip()
+
+
+# REST Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+}

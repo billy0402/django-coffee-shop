@@ -1,3 +1,4 @@
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
 from api.serializers import CoffeeSerializer
@@ -8,3 +9,4 @@ from coffees.models import Coffee
 class CoffeeViewSet(ModelViewSet):
     queryset = Coffee.objects.all()
     serializer_class = CoffeeSerializer
+    permission_classes = (IsAuthenticated,)
