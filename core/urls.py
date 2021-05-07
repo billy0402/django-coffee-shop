@@ -26,6 +26,7 @@ from rest_framework.routers import DefaultRouter
 
 from api import views as api_views
 from utils.auth_views import register
+from utils.error_handlers import permission_denied, page_not_found
 
 admin.site.site_title = '咖啡店 網站管理'
 admin.site.site_header = '咖啡店 管理'
@@ -71,3 +72,6 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]
+
+handler403 = 'utils.error_handlers.permission_denied'
+handler404 = 'utils.error_handlers.page_not_found'
