@@ -8,6 +8,11 @@ django = "*"
 django-bootstrap4 = "*"
 djangorestframework = "*"
 
+gunicorn = "*"
+whitenoise = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+
 [dev-packages]
 flake8 = "*"
 flake8-commas = "*"

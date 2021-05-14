@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -129,6 +130,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 # Login
 
@@ -147,13 +152,20 @@ EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
 
-with open(BASE_DIR / 'core/email.txt', 'r') as file:
-    email_data = file.readlines()
-    email_account, email_password = email_data
+try:
+    with open(BASE_DIR / 'core/email.txt', 'r') as file:
+        email_data = file.readlines()
+        email_account, email_password = email_data
 
-EMAIL_HOST_USER = email_account.strip()
+        EMAIL_HOST_USER = email_account.strip()
 
-EMAIL_HOST_PASSWORD = email_password.strip()
+        EMAIL_HOST_PASSWORD = email_password.strip()
+except FileNotFoundError:
+    print('core/email.txt is not exists.')
+except ValueError:
+    print('core/email.txt does not have email account or password.')
+except Exception as e:
+    print(type(e))
 
 
 # REST Framework
